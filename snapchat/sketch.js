@@ -33,8 +33,10 @@ function draw() {
   stroke(255);
 
   imageMode(CENTER);
-  image(eye_img, positions[27][0], positions[27][1], 100, 100);
-  image(eye_img, positions[32][0], positions[32][1], 100, 100);
+  if(positions.length>0){
+    image(eye_img, positions[27][0], positions[27][1], 100, 100);
+    image(eye_img, positions[32][0], positions[32][1], 100, 100);
+  }
   /*beginShape();
   for (var i=0; i<positions.length; i++) {
     vertex(positions[i][0], positions[i][1]);
