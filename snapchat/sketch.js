@@ -1,7 +1,15 @@
 // https://github.com/kylemcdonald/AppropriatingNewTechnologies/wiki/Week-2
 var capture;
-var tracker
+var tracker;
 var w = 640, h = 480;
+
+var eye_img, nose_img, mouse_img;
+
+function preload() {
+  eye_img = loadImage("eye.png");
+  nose_img = loadImage("nose.png");
+  mouse_img = loadImage("mouse.png");
+}
 
 function setup() {
   capture = createCapture(VIDEO);
@@ -17,16 +25,21 @@ function setup() {
 }
 
 function draw() {
+  imageMode(CORNER);
   image(capture, 0, 0, w, h);
   var positions = tracker.getCurrentPosition();
 
   noFill();
   stroke(255);
-  beginShape();
+
+  imageMode(CENTER);
+  image(eye_img, positions[27][0], positions[27][1], 100, 100);
+  image(eye_img, positions[32][0], positions[32][1], 100, 100);
+  /*beginShape();
   for (var i=0; i<positions.length; i++) {
     vertex(positions[i][0], positions[i][1]);
   }
-  endShape();
+  endShape();*/
   
   noStroke();
   for (var i=0; i<positions.length; i++) {
