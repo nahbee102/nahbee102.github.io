@@ -34,14 +34,17 @@ function draw() {
 
   imageMode(CENTER);
   if(positions.length>0){
-    image(eye_img, positions[27][0], positions[27][1], 100, 100);
-    image(eye_img, positions[32][0], positions[32][1], 100, 100);
+    image(eye_img, positions[27][0], positions[27][1], 70, 70);
+    image(eye_img, positions[32][0], positions[32][1], 70, 70);
+    image(nose_img, positions[62][0], positions[62][1], 70, 70);
+    image(mouse_img, positions[57][0], positions[57][1], 70, 70);
+
   }
   /*beginShape();
   for (var i=0; i<positions.length; i++) {
     vertex(positions[i][0], positions[i][1]);
   }
-  endShape();*/
+  endShape();
   
   noStroke();
   for (var i=0; i<positions.length; i++) {
@@ -55,5 +58,5 @@ function draw() {
     var mouthRight = createVector(positions[50][0], positions[50][1]);
     var smile = mouthLeft.dist(mouthRight);
     // rect(20, 20, smile * 3, 20);
-  }
+  }*/
 }
