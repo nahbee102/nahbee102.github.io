@@ -3,21 +3,33 @@ var capture;
 var tracker;
 var w = 640, h = 480;
 
-var eye_img, nose_img, mouse_img;
+// 내가 올릴 이미지들의 변수이름 입니다. 
+var img1, img2, img3;
+
+//눈코입 위에 올릴 이미지를 불러옵니다. 
+//img폴더에 원하는 이미지를 넣고 
+//png 이미지라면, loadImage("img/이미지이름.png");
+//jpg 이미지라면,loadImage("img/이미지이름.jpg");
+//로 바꿔주세요!
 
 function preload() {
-  eye_img = loadImage("eye.png");
-  nose_img = loadImage("nose.png");
-  mouse_img = loadImage("mouse.png");
+  img1 = loadImage("img/eye.png");
+  img2 = loadImage("img/nose.png");
+  img3 = loadImage("img/mouse.png");
 }
 
 function setup() {
+
+  //웹캠을 불러옵니다.
+
   capture = createCapture(VIDEO);
   createCanvas(w, h);
   capture.size(w, h);
   capture.hide();
   
   colorMode(HSB);
+
+  //얼굴인식을 위한 모델을 불러옵니다. 
   
   tracker = new clm.tracker();
   tracker.init(pModel);
@@ -25,38 +37,35 @@ function setup() {
 }
 
 function draw() {
+
+  // 웹캠을 캔버스에 그립니다. 
+
   imageMode(CORNER);
   image(capture, 0, 0, w, h);
-  var positions = tracker.getCurrentPosition();
 
-  noFill();
-  stroke(255);
+  // 인식된 얼굴의 각 부분 좌표값을 positions에 저장합니다. 
+  var positions = tracker.getCurrentPosition();
 
   imageMode(CENTER);
   if(positions.length>0){
-    image(eye_img, positions[27][0], positions[27][1], 70, 70);
-    image(eye_img, positions[32][0], positions[32][1], 70, 70);
-    image(nose_img, positions[62][0], positions[62][1], 70, 70);
-    image(mouse_img, positions[57][0], positions[57][1], 70, 70);
+
+    // 슬라이드를 참고하셔서 원하는 얼굴부위 의 번호를 파악한 다음
+    // image(이미지변수이름, positions[얼굴부위번호][0], positions[얼굴부위번호][1], 이미지가로길이, 이미지세로길이);
+    // 이미지변수이름에서는 상단 function preload()에서 지정해줬던 이미지변수 중(img1, img2, img3) 원하는 것을
+    // 얼굴부위번호에는 수업 슬라이드를 참고하셔서 원하는 얼굴부위의 번호를 
+    // 이미지가로길이, 이미지세로길이에는 원하는 이미지 가로, 세로 사이즈를 수치로 각각 올려주시면 됩니다. 
+    
+    // 여기서는 눈, 코, 입 중앙 기준으로 작성되어 있습니다. 
+    // 눈(27번) 위에 눈에 해당하는 이미지를 올립니다.
+    image(img1, positions[27][0], positions[27][1], 70, 70);
+    image(img1, positions[32][0], positions[32][1], 70, 70);
+
+    // 코(62번) 위에 눈에 해당하는 이미지를 올립니다.
+    image(img2, positions[62][0], positions[62][1], 70, 70);
+
+    // 입(57번) 위에 눈에 해당하는 이미지를 올립니다.
+    image(img3, positions[57][0], positions[57][1], 70, 70);
 
   }
-  /*beginShape();
-  for (var i=0; i<positions.length; i++) {
-    vertex(positions[i][0], positions[i][1]);
-  }
-  endShape();
-  
-  noStroke();
-  for (var i=0; i<positions.length; i++) {
-    fill(map(i, 0, positions.length, 0, 360), 50, 100);
-    ellipse(positions[i][0], positions[i][1], 4, 4);
-    text(i, positions[i][0], positions[i][1]);
-  }
-  
-  if(positions.length > 0) {
-    var mouthLeft = createVector(positions[44][0], positions[44][1]);
-    var mouthRight = createVector(positions[50][0], positions[50][1]);
-    var smile = mouthLeft.dist(mouthRight);
-    // rect(20, 20, smile * 3, 20);
-  }*/
+
 }
