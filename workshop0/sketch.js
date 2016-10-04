@@ -1,8 +1,8 @@
 var x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6;
 
-var img1,img2,img3,img4,img5,img6,img7;
+var img1,img2,img3,img4,img5,img6,img7,img8;
 
-var isOver1,isOver2,isOver3,isOver4,isOver5,isOver6;
+var isOver1,isOver2,isOver3,isOver4,isOver5,isOver6,isOverRectangle;
 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -16,6 +16,7 @@ function preload() {
   img7 = loadImage("img/workshop0_maintext.png");
   img6 = loadImage("img/workshop0_neopixel.png");
   img5 = loadImage("img/workshop0_terminal.png");
+  img8 = loadImage("img/workshop0_info.png");
 }
 
 function setup() {
@@ -48,14 +49,25 @@ function draw() {
 
 	imageMode(CENTER);
 
+	image(img8, w/2,80, 572/5,1398/5);
+
+	if (mouseX >= w/2-572/10 && mouseX <= w/2+572/10 && mouseY >= 0 && mouseY <= 80+1398/20) 
+	  {
+	    isOverRectangle = true;
+	  } else {
+	    isOverRectangle = false;
+	  }
+
 	if(w>h){
 		image(img7,w/2,h/2,443,82.75);
+	
 	}
 	else{
 		image(img7,w/2,h/2,221.5,41.375);
 	}
 	//image(img5,w/2,h/2,1772,331);
-	
+
+
 	var doing = randomLine(x2,y2);
 
 	x2 = doing[0];
@@ -115,7 +127,7 @@ function draw() {
 
 	image(img6, x6,y6, 70, 70);
 
-	if(isOver4 || isOver2 || isOver1 || isOver3 || isOver5 || isOver6)
+	if(isOver4 || isOver2 || isOver1 || isOver3 || isOver5 || isOver6 ||isOverRectangle)
 	{
 		cursor(HAND);
 	} else {
@@ -126,13 +138,20 @@ function draw() {
 
 function mousePressed()
 {
+	if(isOverRectangle == true){
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(w/2, h/2, 70,70);
+		link("https://github.com/nahbee10/workshop0");
+	}
 	if(isOver1 == true)
 	{
 		ellipseMode(CENTER);
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x1, y1, 70, 70);
-		link("http://p5js.org");
+		link("week1/index.html");
 	}
 	if(isOver2 == true){
 		ellipseMode(CENTER);
@@ -146,29 +165,30 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x3, y3, 70, 70);
-		link("https://www.youtube.com/watch?v=siHQVEStDlg");
+		link("week4/index.html");
 	}
 	if(isOver4 == true){
 		ellipseMode(CENTER);
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x4, y4, 70, 70);
-		link("http://coursescript.com/notes/interactivecomputing/interactivity/");
+		link("week3/index.html");
 	}
 	if(isOver5 == true){
 		ellipseMode(CENTER);
 		stroke(0);
 		strokeWeight(5);
-		ellipse(x5, y5, 117.8, 72);
-		link("https://www.youtube.com/watch?v=siHQVEStDlg");
+		ellipse(x5, y5, 70,70);
+		link("week2/index.html");
 	}
 	if(isOver6 == true){
 		ellipseMode(CENTER);
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x6, y6, 70,70);
-		link("http://coursescript.com/notes/interactivecomputing/interactivity/");
+		link("week5/index.html");
 	}
+	
 }
 
 function link(url, winName, options) {
