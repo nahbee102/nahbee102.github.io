@@ -143,6 +143,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(w/2, h/2, 70,70);
+		isOverRectangle = false;
 		link("https://github.com/nahbee10/workshop0");
 	}
 	if(isOver1 == true)
@@ -151,6 +152,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x1, y1, 70, 70);
+		isOver1 = false;
 		link("week1/index.html");
 	}
 	if(isOver2 == true){
@@ -158,6 +160,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x2, y2, 70, 70);
+		isOver2 = false;
 		link("week0/index.html");
 	}
 	if(isOver3 == true){
@@ -165,6 +168,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x3, y3, 70, 70);
+		isOver3 = false;
 		link("week4/index.html");
 	}
 	if(isOver4 == true){
@@ -172,6 +176,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x4, y4, 70, 70);
+		isOver4 = false;
 		link("week3/index.html");
 	}
 	if(isOver5 == true){
@@ -179,6 +184,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x5, y5, 70,70);
+		isOver5 = false;
 		link("week2/index.html");
 	}
 	if(isOver6 == true){
@@ -186,6 +192,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x6, y6, 70,70);
+		isOver6 = false;
 		link("week5/index.html");
 	}
 	
@@ -221,7 +228,7 @@ function clicked(a,b){
 
 	var tf;
 
-	var distance = dist(mouseX, mouseY, a, b); 
+	var distance = dist(touchX, touchY, a, b); 
 
 	if(distance < 70)
 	{
