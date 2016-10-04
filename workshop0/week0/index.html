@@ -10,17 +10,30 @@
   	.nh_big{
   		font-size: 100px;
   		font-weight: bold;
-  		line-height: 10px;
+  		line-height:100px;
   		text-align: center;
   	}
+  	.nh_name{
+  		position:fixed; 
+  		 
+  		color:#ff00ff;
+  		background-color: blueviolet;
+  	}
+
+  	@media (max-width: 600px) {
+	  .nh_name{
+font-size: 50px;
+line-height:50px;
+	  }
+	}
   	</style>
 </head>
-<body>
-	<p class = "nh_big">week0</p>
-	<p class = "nh_big">Face tracking</p>
-	<p class = "nh_big">092916</p>
-	<p class = "nh_big" style="line-height:120px">clmtrkr를 활용해서<br> 각자의 인터랙티브 마스크를<br> 만들어본다.</p>
-
-	<a href="#"><p class="nh_big" style="position:fixed; top:100px; left:70px; color:#ff00ff;">김나희</p></a>
+<body style="height:900px; overflow-y: scroll; ">
+	<p class = "nh_big" style="margin-top: -40px;">week0<br>Face tracking<br>092916</p>
+	<p class = "nh_big" style="line-height:120px; margin-top: -40px;">clmtrkr를 활용해서<br> 각자의 인터랙티브 마스크를<br> 만들어본다.</p>
+	<a href="#"><span class="nh_big nh_name" style="top:0px; left:70px;">김나희</span></a>
+	<a href="#"><span class="nh_big nh_name" style="top:200px; left:70px;">이가경</span></a>
+	<a href="#"><span class="nh_big nh_name" style="top:300px; right:70px;">성은지</span></a>
+	<a href="#"><span class="nh_big nh_name" style="top:100px; right:70px;">황휘</span></a>
 </body>
 </html>
