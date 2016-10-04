@@ -22,18 +22,18 @@ function preload() {
 function setup() {
 
   createCanvas(w, h);
-  x1 = w/2;
-  y1 = h/2;
-  x2 = w/2;
-  y2 = h/2;
-  x3 = w/2;
-  y3 = h/2;
-  x4 = w/2;
-  y4 = h/2;
+  x1 = w/2-50;
+  y1 = h/2-50;
+  x2 = w/2+50;
+  y2 = h/2+50;
+  x3 = w/2-50;
+  y3 = h/2+50;
+  x4 = w/2+50;
+  y4 = h/2-50;
   x5 = w/2;
-  y5 = h/2;
+  y5 = h/2+50;
   x6 = w/2;
-  y6 = h/2;
+  y6 = h/2-50;
 
   frameRate(10);
 }
