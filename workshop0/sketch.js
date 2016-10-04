@@ -18,14 +18,28 @@ function setup() {
 function draw() {
 
   // 웹캠을 캔버스에 그립니다. 
-  var ranX = random(-10,10);
-  var ranY = random(-10,10);
+  var ranX = random(-15,15);
+  var ranY = random(-15,15);
+
+  var goalX = x+ranX;
+  var goalY = y+ranY;
+
+  if (goalX<0){
+  	goalX = 0;
+  }else if(goalX >w){
+  	goalX = w;
+  }
+  if (goalY<0){
+  	goalY = 0;
+  }else if(goalY >h){
+  	goalY = h;
+  }
+  line(x,y,goalX,goalY);
+
+  x = goalX;
+  y = goalY;
 
 
-  line(x,y,x+ranX,y+ranY);
-
-  x = x+ranX;
-  y = y+ranY;
 
   /*imageMode(CORNER);
   image(capture, 0, 0, w, h);
