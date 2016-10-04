@@ -42,8 +42,12 @@ function draw() {
 
 	imageMode(CENTER);
 
-
-	image(img5,w/2,h/2,443,82.75);
+	if(w>h){
+		image(img5,w/2,h/2,443,82.75);
+	}
+	else{
+		image(img5,w/2,h/2,221.5,41.375);
+	}
 	//image(img5,w/2,h/2,1772,331);
 	
 	var doing = randomLine(x2,y2);
