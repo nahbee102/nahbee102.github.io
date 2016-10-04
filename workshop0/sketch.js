@@ -1,8 +1,8 @@
-var x1,y1,x2,y2,x3,y3,x4,y4;
+var x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6;
 
-var img1,img2,img3,img4;
+var img1,img2,img3,img4,img5,img6,img7;
 
-var isOver1,isOver2,isOver3,isOver4;
+var isOver1,isOver2,isOver3,isOver4,isOver5,isOver6;
 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -13,7 +13,9 @@ function preload() {
   img2 = loadImage("img/workshop0_eyenosemouse.png");
   img3 = loadImage("img/workshop0_ssh.png");
   img4 = loadImage("img/workshop0_wekinator.png");
-  img5 = loadImage("img/workshop0_maintext.png");
+  img7 = loadImage("img/workshop0_maintext.png");
+  img6 = loadImage("img/workshop0_neopixel.png");
+  img5 = loadImage("img/workshop0_terminal.png");
 }
 
 function setup() {
@@ -27,6 +29,10 @@ function setup() {
   y3 = h/2;
   x4 = w/2;
   y4 = h/2;
+  x5 = w/2;
+  y5 = h/2;
+  x6 = w/2;
+  y6 = h/2;
 
   frameRate(10);
 }
@@ -43,10 +49,10 @@ function draw() {
 	imageMode(CENTER);
 
 	if(w>h){
-		image(img5,w/2,h/2,443,82.75);
+		image(img7,w/2,h/2,443,82.75);
 	}
 	else{
-		image(img5,w/2,h/2,221.5,41.375);
+		image(img7,w/2,h/2,221.5,41.375);
 	}
 	//image(img5,w/2,h/2,1772,331);
 	
@@ -91,7 +97,25 @@ function draw() {
 
 	image(img4, x4,y4, 70, 70);
 
-	if(isOver4 || isOver2 || isOver1 || isOver3)
+	doing = randomLine(x5,y5);
+
+	x5 = doing[0];
+	y5 = doing[1];
+
+	isOver5 = clicked(x5,y5);
+
+	image(img5, x5,y5, 117.8, 72);
+
+	doing = randomLine(x6,y6);
+
+	x6 = doing[0];
+	y6 = doing[1];
+
+	isOver6 = clicked(x6,y6);
+
+	image(img6, x6,y6, 70, 70);
+
+	if(isOver4 || isOver2 || isOver1 || isOver3 || isOver5 || isOver6)
 	{
 		cursor(HAND);
 	} else {
@@ -102,39 +126,49 @@ function draw() {
 
 function mousePressed()
 {
-  if(isOver1 == true)
-  {
-        		ellipseMode(CENTER);
-  stroke(0);
-  strokeWeight(5);
-    
-  ellipse(x1, y1, 70, 70);
-    link("http://p5js.org");
-  }
-  if(isOver2 == true){
-  	    		ellipseMode(CENTER);
-  stroke(0);
-  strokeWeight(5);
-    
-  ellipse(x2, y2, 70, 70);
-	link("https://soundcloud.com/stream");
-  }
-  if(isOver3 == true){
-  	    		ellipseMode(CENTER);
-  stroke(0);
-  strokeWeight(5);
-    
-  ellipse(x3, y3, 70, 70);
-  	link("https://www.youtube.com/watch?v=siHQVEStDlg");
-  }
-  if(isOver4 == true){
-  	    		ellipseMode(CENTER);
-  stroke(0);
-  strokeWeight(5);
-    
-  ellipse(x4, y4, 70, 70);
-  	link("http://coursescript.com/notes/interactivecomputing/interactivity/");
-  }
+	if(isOver1 == true)
+	{
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(x1, y1, 70, 70);
+		link("http://p5js.org");
+	}
+	if(isOver2 == true){
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(x2, y2, 70, 70);
+		link("https://soundcloud.com/stream");
+	}
+	if(isOver3 == true){
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(x3, y3, 70, 70);
+		link("https://www.youtube.com/watch?v=siHQVEStDlg");
+	}
+	if(isOver4 == true){
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(x4, y4, 70, 70);
+		link("http://coursescript.com/notes/interactivecomputing/interactivity/");
+	}
+	if(isOver5 == true){
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(x5, y5, 117.8, 72);
+		link("https://www.youtube.com/watch?v=siHQVEStDlg");
+	}
+	if(isOver6 == true){
+		ellipseMode(CENTER);
+		stroke(0);
+		strokeWeight(5);
+		ellipse(x6, y6, 70,70);
+		link("http://coursescript.com/notes/interactivecomputing/interactivity/");
+	}
 }
 
 function link(url, winName, options) {
