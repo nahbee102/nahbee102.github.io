@@ -2,6 +2,8 @@ var x1,y1,x2,y2,x3,y3,x4,y4;
 
 var img1,img2,img3,img4;
 
+var isOver1,isOver2,isOver3,isOver4;
+
 var w = window.innerWidth;
 var h = window.innerHeight;
 
@@ -36,29 +38,35 @@ function draw() {
 
 	//stroke('rgba(0,255,0,0.25)');
 
-	var doing = randomLine(x1,y1);
-
-	x1 = doing[0];
-	y1 = doing[1];
-
-	imageMode(CENTER);
-	image(img1, x1,y1, 70, 70);
-
-	//stroke('rgba(0,0,255,0.25)');
-
-	doing = randomLine(x2,y2);
+	var doing = randomLine(x2,y2);
 
 	x2 = doing[0];
 	y2 = doing[1];
+
+	isOver2 = clicked(x2,y2);
 
 	image(img2, x2,y2, 70, 70);
 
 	//stroke('rgba(255,0,0,0.25)');
 
+	doing = randomLine(x1,y1);
+
+	x1 = doing[0];
+	y1 = doing[1];
+
+	isOver1 = clicked(x1,y1);
+
+
+	imageMode(CENTER);
+	image(img1, x1,y1, 70, 70);
+
+	//stroke('rgba(0,0,255,0.25)');
 	doing = randomLine(x3,y3);
 
 	x3 = doing[0];
 	y3 = doing[1];
+
+	isOver3 = clicked(x3,y3);
 
 	image(img3, x3,y3, 70, 70);
 
@@ -69,42 +77,58 @@ function draw() {
 	x4 = doing[0];
 	y4 = doing[1];
 
+	isOver4 = clicked(x4,y4);
+
 	image(img4, x4,y4, 70, 70);
 
-  // 웹캠을 캔버스에 그립니다. 
-  /*var ranX = random(-15,15);
-  var ranY = random(-15,15);
+	if(isOver4 || isOver2 || isOver1 || isOver3)
+	{
+		cursor(HAND);
+	} else {
+		cursor(ARROW);
+	}
 
-  var goalX = x+ranX;
-  var goalY = y+ranY;
+}
 
-  if (goalX<0){
-  	goalX = 0;
-  }else if(goalX >w){
-  	goalX = w;
+function mousePressed()
+{
+  if(isOver1 == true)
+  {
+        		ellipseMode(CENTER);
+  stroke(0);
+  strokeWeight(5);
+    
+  ellipse(x1, y1, 70, 70);
+    link("http://p5js.org");
   }
-  if (goalY<0){
-  	goalY = 0;
-  }else if(goalY >h){
-  	goalY = h;
+  if(isOver2 == true){
+  	    		ellipseMode(CENTER);
+  stroke(0);
+  strokeWeight(5);
+    
+  ellipse(x2, y2, 70, 70);
+	link("https://soundcloud.com/stream");
   }
-  line(x,y,goalX,goalY);
+  if(isOver3 == true){
+  	    		ellipseMode(CENTER);
+  stroke(0);
+  strokeWeight(5);
+    
+  ellipse(x3, y3, 70, 70);
+  	link("https://www.youtube.com/watch?v=siHQVEStDlg");
+  }
+  if(isOver4 == true){
+  	    		ellipseMode(CENTER);
+  stroke(0);
+  strokeWeight(5);
+    
+  ellipse(x4, y4, 70, 70);
+  	link("http://coursescript.com/notes/interactivecomputing/interactivity/");
+  }
+}
 
-  x = goalX;
-  y = goalY;*/
-
-  /*imageMode(CORNER);
-  image(capture, 0, 0, w, h);
-
-  // 인식된 얼굴의 각 부분 좌표값을 positions에 저장합니다. 
-  var positions = tracker.getCurrentPosition();
-
-  imageMode(CENTER);
-  if(positions.length>0){
-    image(img3, positions[57][0], positions[57][1], 70, 70);
-
-  }*/
-
+function link(url, winName, options) {
+  winName && open(url, winName, options) || (location = url);
 }
 
 function randomLine(a,b){
@@ -126,17 +150,23 @@ function randomLine(a,b){
 		goalY = h-35;
 	}
 
-	//stroke('rgba(0,255,0,1)');
-	//line(a,b,goalX,goalY);
-	/*stroke('rgba(0,0,255,1)');
-	line(a-1,b-1,goalX-1,goalY-1);
-	stroke('rgba(255,0,0,1)');
-	line(a-2,b-2,goalX-2,goalY-2);
-	stroke('rgba(0,0,0,0.25)');
-	line(a-3,b-3,goalX-3,goalY-3);*/
-
 	return [goalX,goalY];
+}
 
-	/*a = goalX;
-	b = goalY;*/
+function clicked(a,b){
+
+	var tf;
+
+	var distance = dist(mouseX, mouseY, a, b); 
+
+	if(distance < 70)
+	{
+		tf = true;
+		//cursor(HAND);
+	} else {
+		tf = false;
+		//cursor(ARROW);
+	}
+
+	return tf;
 }
