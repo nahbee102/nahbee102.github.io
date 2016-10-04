@@ -21,8 +21,8 @@ function draw() {
   var ranX = random(-10,10);
   var ranY = random(-10,10);
 
-  
-  line(x,y,ranX,ranY);
+
+  line(x,y,x+ranX,y+ranY);
 
   x = ranX;
   y = ranY;
