@@ -139,7 +139,7 @@ function mousePressed()
 		stroke(0);
 		strokeWeight(5);
 		ellipse(x2, y2, 70, 70);
-		link("https://soundcloud.com/stream");
+		link("week0/index.html");
 	}
 	if(isOver3 == true){
 		ellipseMode(CENTER);
