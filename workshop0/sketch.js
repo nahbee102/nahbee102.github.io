@@ -24,8 +24,8 @@ function draw() {
 
   line(x,y,x+ranX,y+ranY);
 
-  x = ranX;
-  y = ranY;
+  x = x+ranX;
+  y = y+ranY;
 
   /*imageMode(CORNER);
   image(capture, 0, 0, w, h);
