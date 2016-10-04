@@ -11,8 +11,8 @@ function preload() {
 function setup() {
 
   createCanvas(w, h);
-  x = -10;
-  y = -10;
+  x = 10;
+  y = 10;
 }
 
 function draw() {
