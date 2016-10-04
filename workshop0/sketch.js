@@ -13,6 +13,7 @@ function preload() {
   img2 = loadImage("img/workshop0_eyenosemouse.png");
   img3 = loadImage("img/workshop0_ssh.png");
   img4 = loadImage("img/workshop0_wekinator.png");
+  img5 = loadImage("img/workshop0_maintext.png");
 }
 
 function setup() {
@@ -32,12 +33,19 @@ function setup() {
 
 function draw() {
 
+
 	background('rgba(255,255,255, 0.1)');
 	strokeWeight(10);
 	stroke('rgba(0,0,0,1)');
 
 	//stroke('rgba(0,255,0,0.25)');
 
+	imageMode(CENTER);
+
+
+	image(img5,w/2,h/2,443,82.75);
+	//image(img5,w/2,h/2,1772,331);
+	
 	var doing = randomLine(x2,y2);
 
 	x2 = doing[0];
@@ -56,8 +64,6 @@ function draw() {
 
 	isOver1 = clicked(x1,y1);
 
-
-	imageMode(CENTER);
 	image(img1, x1,y1, 70, 70);
 
 	//stroke('rgba(0,0,255,0.25)');
