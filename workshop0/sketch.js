@@ -70,10 +70,10 @@ function draw() {
 
 	var doing = randomLine(x2,y2);
 
+	isOver2 = clicked(x2,y2);
+	
 	x2 = doing[0];
 	y2 = doing[1];
-
-	isOver2 = clicked(x2,y2);
 
 	image(img2, x2,y2, 70, 70);
 
@@ -81,20 +81,20 @@ function draw() {
 
 	doing = randomLine(x1,y1);
 
+	isOver1 = clicked(x1,y1);
+
 	x1 = doing[0];
 	y1 = doing[1];
-
-	isOver1 = clicked(x1,y1);
 
 	image(img1, x1,y1, 70, 70);
 
 	//stroke('rgba(0,0,255,0.25)');
 	doing = randomLine(x3,y3);
 
+	isOver3 = clicked(x3,y3);
+
 	x3 = doing[0];
 	y3 = doing[1];
-
-	isOver3 = clicked(x3,y3);
 
 	image(img3, x3,y3, 70, 70);
 
@@ -102,28 +102,28 @@ function draw() {
 
 	doing = randomLine(x4,y4);
 
+	isOver4 = clicked(x4,y4);
+
 	x4 = doing[0];
 	y4 = doing[1];
-
-	isOver4 = clicked(x4,y4);
 
 	image(img4, x4,y4, 70, 70);
 
 	doing = randomLine(x5,y5);
 
+	isOver5 = clicked(x5,y5);
+
 	x5 = doing[0];
 	y5 = doing[1];
-
-	isOver5 = clicked(x5,y5);
 
 	image(img5, x5,y5, 117.8, 72);
 
 	doing = randomLine(x6,y6);
 
+	isOver6 = clicked(x6,y6);
+
 	x6 = doing[0];
 	y6 = doing[1];
-
-	isOver6 = clicked(x6,y6);
 
 	image(img6, x6,y6, 70, 70);
 
@@ -142,7 +142,7 @@ function mousePressed()
 		ellipseMode(CENTER);
 		stroke(0);
 		strokeWeight(5);
-		ellipse(w/2, h/2, 70,70);
+		ellipse(w/2, 80, 70,70);
 		isOverRectangle = false;
 		link("https://github.com/nahbee10/workshop0");
 	}

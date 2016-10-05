@@ -12,14 +12,14 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/addons/p5.dom.min.js"></script>
   <style>*{font-family: sans-serif;}</style>
 </head>
-<body style="margin:0;" onload="location.href = document.referrer;">
+<body style="margin:0;">
   <script src="sketch.js"></script>
-  <input type="hidden" id="refreshed" value="no">
 <script type="text/javascript">
-onload=function(){
-var e=document.getElementById("refreshed");
-if(e.value=="no")e.value="yes";
-else{e.value="no";location.reload();}
-}</script>
+window.addEventListener("pageshow", function(evt){
+        if(evt.persisted){
+            window.location.reload();
+    }
+}, false);
+</script>
 </body>
 </html>
