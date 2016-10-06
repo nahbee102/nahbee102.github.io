@@ -16,7 +16,6 @@ function Particle(position, radius, range, strength) {
     fill(127);
     stroke(200);
     strokeWeight(2);
-    //ellipse(this.x,this.y,this.r*2,this.r*2);
     ellipse(this.x,this.y,20,20);
   }
 }

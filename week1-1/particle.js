@@ -9,13 +9,10 @@ function Particle(position, radius, range, strength) {
   physics.addParticle(this);
 
   this.behavior = new AttractionBehavior(this, range, strength);
-  // this.behavior.radius = 5.0;
-  // this.behavior.radiusSquared = 5 * 5;
+
   physics.addBehavior(this.behavior);
 
 
-
-  //console.log(this.behavior);
 
   // Override the display method
   this.display = function() {
