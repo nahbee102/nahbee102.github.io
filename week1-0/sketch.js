@@ -28,6 +28,7 @@ function setup() {
   }
 
   var pp= 0;
+
   for (var x = 0; x < w/40; x++){
     for (var y = 0; y < h/40; y++) {
       particles.push(new Particle(new Vec2D(x*40,y*40)));
@@ -49,10 +50,25 @@ function draw() {
   background(51);
 
   //attractor.display();
+
+  // 각 파티클 보여주기
   for (var i = w*h/1600; i < w*h/800; i++) {
     particles[i].display();
   }
 
+  //버티컬 만들기?
+  /*
+  var counter = 0;
+
+  for (var x = 0; x < w/40; x++){
+    beginShape();
+    for (var y = 0; y < h/40; y++) {
+      vertex(particles[w*h/1600+counter].x, particles[w*h/1600+counter].y);
+      counter++;
+    }
+    endShape();
+  }
+  */
   attractor.set(mouseX,mouseY);
 
 }
