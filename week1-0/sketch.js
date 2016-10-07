@@ -52,12 +52,12 @@ function draw() {
   //attractor.display();
 
   // 각 파티클 보여주기
-  for (var i = w*h/1600; i < w*h/800; i++) {
+  /*for (var i = w*h/1600; i < w*h/800; i++) {
     particles[i].display();
-  }
+  }*/
 
   //버티컬 만들기?
-  /*
+  
   var counter = 0;
 
   for (var x = 0; x < w/40; x++){
@@ -68,7 +68,7 @@ function draw() {
     }
     endShape();
   }
-  */
+  
   attractor.set(mouseX,mouseY);
 
 }
