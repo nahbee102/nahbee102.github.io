@@ -29,10 +29,10 @@ function setup() {
   //blob 추가하기
   //blobs.push(new Blob(반지름, 중심 x좌표, 중심 y좌표));
   //자바스크립트가 물리엔진을 계산하기에 충분히 빠르지가 않아서 3개 이상 추가하시면 움직임이 느려져요... 흑흑
-  blobs.push(new Blob(180,w/2,h/2));
+  blobs.push(new Blob(300,0,0));
 
-  blobs.push(new Blob(50,w/2+200,h/2));
-  blobs.push(new Blob(50,w/2-200,h/2));
+  //blobs.push(new Blob(0,w/2+200,h/2));
+  //blobs.push(new Blob(50,w/2-200,h/2));
 
 
 }
@@ -102,11 +102,11 @@ function Blob(r,coX,coY){
       this.springs.push(spring2);
       physics.addSpring(spring2);
     }
-    if (i % 1 == 0) {
+    /*if (i % 1 == 0) {
       var spring2 = new VerletSpring2D(this.particles[i], this.attractor, r, 0.00001);
       this.springs.push(spring2);
       physics.addSpring(spring2);
-    }
+    }*/
 
   }
 

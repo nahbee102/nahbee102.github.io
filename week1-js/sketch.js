@@ -40,7 +40,7 @@ function draw() {
 
   colorMode(RGB);
 
-  //background(255,255,255);
+  background(255,255,255);
 
   for (var i = 0; i < cir_num; i++) {
     if(dist(mouseX,mouseY,x_arr[i],y_arr[i])<r_arr[i]){
@@ -50,10 +50,10 @@ function draw() {
 
   colorMode(HSB,100);
 
-  /*for (var i = 0; i < cir_num; i++) {
+  for (var i = 0; i < cir_num; i++) {
 
     fill(c_arr[i]*100,100,100);
     ellipse(x_arr[i],y_arr[i],r_arr[i],r_arr[i]);
-  }*/
+  }
 
 }
