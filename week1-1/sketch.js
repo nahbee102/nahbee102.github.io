@@ -59,10 +59,10 @@ function draw() {
     blobs[i].drawblob(seconds);
 
     //particle들을 실제로 보고 싶다면 하단 주석 해제
-    //blobs[i].showParticles();
+    blobs[i].showParticles();
 
     //spring을 실제로 보고 싶다면 하단 주석 해제
-    //blobs[i].showSpring();
+    blobs[i].showSpring();
   };
 
 }
@@ -86,7 +86,7 @@ function Blob(r,coX,coY){
     
   }
   //blob을 한 점에 고정하기 위한 attractor배치
-  this.attractor = new Particle(new Vec2D(coX, coY), r, r, 0.01);
+  this.attractor = new Particle(new Vec2D(coX, coY), r, r, -0.01);
   this.attractor.lock();
 
   //blob의 shape을 유지하기 위해 3단계의 spring배치
