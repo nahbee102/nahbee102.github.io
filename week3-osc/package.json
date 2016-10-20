@@ -1,5 +1,5 @@
 {
-	"name": "p5js-osc",
+	"name": "week3-osc",
 	"description": "OSC (Open Sound Control) Web Bridge for p5.js, adapted from https://github.com/automata/osc-web",
 	"version": "0.1.0",
 	"author": {
