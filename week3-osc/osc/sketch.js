@@ -1,8 +1,10 @@
 var x, y;
 var socket;
 var isConnected;
+//자기 IP주소와 포트 번호를 적어주세요.
 var myAddress = '192.168.0.24';
 var myPort = 12000;
+//상대방의 IP주소와 포트 번호를 적어주세요.
 var yourAddress = '192.168.0.114';
 var yourPort = 3334;
 
@@ -28,9 +30,6 @@ function draw() {
 			ellipse(x_arr[i],y_arr[i],r_arr[i],r_arr[i]);
 		};
 	}
-
-	/*fill(0);
-	text("I'm p5.js", x-25, y);*/
 	
 }
 

@@ -36,16 +36,17 @@ function draw() {
   	if(positions.length>0){
   		socket.emit('message', ['/wek/inputs',
   			positions[0][0], positions[0][1],
+  			positions[3][0], positions[3][1],
   			positions[6][0], positions[6][1],
+  			positions[9][0], positions[9][1],
   			positions[12][0], positions[12][1],
+  			positions[15][0], positions[15][1],
   			positions[18][0], positions[18][1],
+  			positions[21][0], positions[21][1],
   			positions[24][0], positions[24][1],
+  			positions[27][0], positions[27][1],
   			positions[30][0], positions[30][1],
-  			positions[36][0], positions[36][1],
-  			positions[42][0], positions[42][1],
-  			positions[48][0], positions[48][1],
-  			positions[54][0], positions[54][1],
-  			positions[60][0], positions[60][1]]);
+  			positions[33][0], positions[33][1]]);
   	}
 
 	colorMode(RGB);
@@ -64,23 +65,24 @@ function draw() {
 	}
 	endShape();
 
-	fill(0.1*100,0,100);
+	fill(0.3*100,100,100);
 	textSize(80);
-	text(deliveredM, w/2-200, h/2-50);
+	text(deliveredM, w/2-100, h/2-50);
 	
 }
 
 
 function receiveOsc(address, value) {
+	//console.log("received OSC: " + address + ", " + value);
 
-	if(value == '1'){
-		deliveredM = '왼쪽?';
+	if(address == '/output_1'){
+		deliveredM = '묵';
 		console.log("1");
-	}else if(value == '2'){
-		deliveredM = '오른쪽?';
+	}else if(address == '/output_2'){
+		deliveredM = '찌';
 		console.log("2");
-	}else if(value == '3'){
-		deliveredM = '위?';
+	}else if(address == 'output_3'){
+		deliveredM = '빠';
 		console.log("3");
 	}
 	
